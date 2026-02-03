@@ -1,1 +1,7 @@
 # Forecasting_LSTM_ARIMA
+
+This project forecasts Steam player counts for PUBG: Battlegrounds and Grand Theft Auto V on Steam by converting historical observations into daily time series, identifying weekly seasonality (7-day cycle), and targeting a 35-day prediction horizon. It applies classical time-series preparation steps such as variance stabilization and stationarity treatment (including differencing when needed), then fits ARIMA-family models with seasonal settings and auto-identified orders, producing test-period forecasts and future projections that are evaluated using MAPE calculated directly from actual vs predicted values.
+
+In parallel, it trains LSTM-based forecasting models by scaling the daily series, splitting data into training and testing sets, forming supervised sequences with a fixed lookback window, and training a single-layer LSTM model with dense output using Adam optimization and error-based metrics. Predictions are inverse-transformed back to the original scale, compared against held-out actual values, and extended into a 35-day ahead forecast through iterative next-step generation. Results across smoothing-based approaches, seasonal ARIMA modeling, and LSTM forecasting are compared using consistent error metrics and visual diagnostics (actual vs predicted curves, residual/fit checks, and forward-forecast plots).
+
+Check out the [Project Presentation Slides](https://docs.google.com/presentation/d/1PfmrmIrrTXuFpCuajQ04NLrUu2B9nNL7aGV0hnV5gRg/edit?usp=sharing) for more details.
